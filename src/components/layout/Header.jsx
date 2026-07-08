@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            Wuwa Party Builder
+            <h2>Wuwa Party Builder</h2>
         </header>
     )
 }

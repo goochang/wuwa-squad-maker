@@ -1,12 +1,15 @@
 import characters from "../../data/characters.json";
 import CharacterCard from "./CharacterCard";
 import { characterImages } from "../../assets/images/characterImages";
+import useWuwaStore from "../../store/Store";
 
 function CharacterGrid() {
+    const { selectedAttr, setSelectedAttr } = useWuwaStore();
+
     return (
-        <div class="character-grid">
+        <div className="character-grid">
             {
-            characters.map((character) => (
+            characters.filter((character) => selectedAttr === "전체" || character.attr === selectedAttr).map((character) => (
                 <CharacterCard
                     key={character.id}
                     character={{

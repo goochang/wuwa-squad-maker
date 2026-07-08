@@ -1,3 +1,29 @@
+:root {
+  --aero-bg: #10291A;
+  --aero-border: #4ADE80;
+  --aero-text: #86EFAC;
+
+  --glacio-bg: #0F2533;
+  --glacio-border: #38BDF8;
+  --glacio-text: #7DD3FC;
+
+  --electro-bg: #221636;
+  --electro-border: #A855F7;
+  --electro-text: #C084FC;
+
+  --fusion-bg: #311414;
+  --fusion-border: #F87171;
+  --fusion-text: #FCA5A5;
+
+  --spectro-bg: #332C0E;
+  --spectro-border: #FACC15;
+  --spectro-text: #FDE047;
+
+  --havoc-bg: #32111E;
+  --havoc-border: #EC4899;
+  --havoc-text: #F9A8D4;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,11 +47,17 @@ body {
   --border: black;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 /* Header (20%) */
 header {
-  height: 20vh;
+  /* height: 20vh; */
+  margin-bottom: 1.5rem;
+}
+header h2 {
+  color: white;
+  font-size: 2rem;
 }
 
 /* Main (80%) */
@@ -33,7 +65,7 @@ header {
   flex: 1;
   display: flex;
   gap: 20px;
-
+  height: 100%;
   padding: 0 100px 100px;
 }
 
@@ -55,10 +87,26 @@ section {
   border-color: color-mix(in oklab, oklch(27.9% .041 260.031) 40%, transparent);
 }
 
+section h2 {
+  color:white;
+}
+
+.character-panel {
+    background: color-mix(in oklab, oklch(20.8% .042 265.755) 30%, transparent);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;   /* 추가 */
+    gap: 8px;
+}
 .character-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+    min-height: 0;   /* 추가 */
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .character-card {
@@ -73,4 +121,115 @@ section {
 .character-card img{
   width: 95px;
   height: auto;
+}
+
+.element-filter {
+    display: flex;
+    gap: 6px;
+    background: oklch(12.9% .042 264.695);
+    padding: 6px 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.5rem;
+    border-color: color-mix(in oklab, oklch(27.9% .041 260.031) 80%, transparent);
+  }
+
+.filter-btn {
+    padding: 6px 14px;
+    border-radius: 5px;
+    border: none;
+    background: #1f1f1f;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.filter-btn.all:hover {
+    background: #2a2a2a;
+    border-color: #777;
+}
+.filter-btn.all.selected {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
+}
+
+.attr {
+    padding: 2px 10px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* 필터 버튼 */
+.filter-btn.fusion.selected {
+    background: var(--fusion-bg);
+}
+
+.filter-btn.glacio.selected {
+    background: var(--glacio-bg);
+}
+
+.filter-btn.aero.selected {
+    background: var(--aero-bg);
+}
+.filter-btn.electro.selected {
+    background: var(--electro-bg);
+}
+
+.filter-btn.spectro.selected {
+    background: var(--spectro-bg);
+}
+
+.filter-btn.havoc.selected {
+    background: var(--havoc-bg);
+}
+
+
+/* 공명자 속성 버튼 */
+/* 융융 */
+.attr-fusion {
+    background: var(--fusion-bg);
+    color: var(--fusion-color);
+    border: 1px solid var(--fusion-border);
+}
+
+/* 응결 */
+.attr-glacio {
+    background: var(--glacio-bg);
+    color: var(--glacio-color);
+    border: 1px solid var(--glacio-border);
+}
+
+/* 기류 */
+.attr-aero {
+    background: var(--aero-bg);
+    color: var(--aero-color);
+    border: 1px solid var(--aero-border);
+}
+
+/* 전도 */
+.attr-electro {
+    background: var(--electro-bg);
+    color: var(--electro-color);
+    border: 1px solid var(--electro-border);
+}
+
+/* 회절 */
+.attr-spectro {
+    background: var(--spectro-bg);
+    color: var(--spectro-color);
+    border: 1px solid var(--spectro-border);
+}
+
+/* 인멸 */
+.attr-havoc {
+    background: var(--havoc-bg);
+    color: var(--havoc-color);
+    border: 1px solid var(--havoc-border);
 }
