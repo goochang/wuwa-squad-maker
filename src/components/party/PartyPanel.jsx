@@ -1,7 +1,18 @@
+import useWuwaStore from "../../store/Store";
+import PartySlot from "./PartySlot";
+import PartyTitle from "./PartyTitle";
+
 function PartyPanel() {
+    const { parties, setParties } = useWuwaStore();
+
     return (
         <section>
-            파티 편성 현황
+            <PartyTitle />
+            {
+            parties.map((party, index) => (
+                <PartySlot key={index} partyIndex={index} party={party} />
+            ))
+            }
         </section>
     )
 }

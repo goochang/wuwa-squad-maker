@@ -10,7 +10,9 @@ function CharacterCard({ key,character, image }) {
 
     return (
         <div className="character-card">
-            <img src={character.image} alt={character.name} />
+            <div className="character-image">
+                <img src={character.image} alt={character.name} />
+            </div>
             <span>{character.name}</span>
             <span className={`attr attr-${attrClass[character.attr]}`}>{character.attr}</span>
         </div>
